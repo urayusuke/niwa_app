@@ -1,0 +1,43 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'record_state.dart';
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+String _$inputSheetNotifierHash() =>
+    r'fafd6f4e6498fb85c550d6a6315838a305a25147';
+
+/// See also [InputSheetNotifier].
+@ProviderFor(InputSheetNotifier)
+final inputSheetNotifierProvider =
+    AutoDisposeNotifierProvider<InputSheetNotifier, InputSheetState>.internal(
+      InputSheetNotifier.new,
+      name: r'inputSheetNotifierProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$inputSheetNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$InputSheetNotifier = AutoDisposeNotifier<InputSheetState>;
+String _$recordNotifierHash() => r'907442118c6886e2ed0c5e47b00eac45842bc93f';
+
+/// See also [RecordNotifier].
+@ProviderFor(RecordNotifier)
+final recordNotifierProvider =
+    AutoDisposeNotifierProvider<RecordNotifier, RecordState>.internal(
+      RecordNotifier.new,
+      name: r'recordNotifierProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$recordNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$RecordNotifier = AutoDisposeNotifier<RecordState>;
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

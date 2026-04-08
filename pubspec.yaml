@@ -1,0 +1,51 @@
+name: niwa_app
+description: "Niwa — 非同期・非対称・低カロリーな自己肯定感の育成アプリ"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase
+  firebase_core: ^3.0.0
+  firebase_auth: ^5.0.0
+  cloud_firestore: ^5.0.0
+  firebase_messaging: ^15.0.0
+
+  # State management
+  flutter_riverpod: ^2.5.0
+  riverpod_annotation: ^2.3.0
+
+  # Model
+  freezed_annotation: ^2.4.0
+  json_annotation: ^4.9.0
+
+  # Router
+  go_router: ^14.0.0
+
+  # Ads
+  google_mobile_ads: ^5.0.0
+
+  # Font
+  google_fonts: ^6.0.0
+
+  # Utils
+  url_launcher: ^6.3.0
+  google_sign_in: ^7.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  build_runner: ^2.4.0
+  freezed: ^2.5.0
+  riverpod_generator: ^2.4.0
+  json_serializable: ^6.8.0
+
+flutter:
+  uses-material-design: true
