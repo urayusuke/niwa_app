@@ -7,6 +7,16 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'feedback_state.g.dart';
 
 @riverpod
+Stream<AiFeedback?> feedbackByDate(Ref ref, String date) {
+  return ref
+      .watch(feedbackRepositoryProvider)
+      .watchFeedbackByDate(date)
+      .handleError((Object e) {
+    debugPrint('[ERROR] feedback.watchFeedbackByDate: $e');
+  });
+}
+
+@riverpod
 Stream<AiFeedback?> todayFeedback(Ref ref) {
   final today = _today();
   return ref

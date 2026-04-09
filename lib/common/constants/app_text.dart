@@ -54,6 +54,13 @@ class AppText {
   static const logoutConfirm   = 'ログアウトしますか？';
   static const logoutCancel    = 'キャンセル';
 
+  static const navHome      = 'ホーム';
+  static const navHistory   = '記録';
+  static const historyTitle = '記録の庭';
+  static const historyEmpty = 'まだ記録がありません';
+
+  static const dayDetailFeedbackEmpty = 'この日のフィードバックはまだ届いていません';
+
   static const errorGeneral          = 'しばらくしてからもう一度お試しください';
   static const errorNetwork          = 'ネットワークに接続できませんでした';
   static const errorRecord           = '記録を保存できませんでした。もう一度試してみてください';

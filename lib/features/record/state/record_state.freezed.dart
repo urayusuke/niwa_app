@@ -396,3 +396,152 @@ abstract class _RecordState implements RecordState {
   _$$RecordStateImplCopyWith<_$RecordStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$HistoryState {
+  List<Record> get records => throw _privateConstructorUsedError;
+
+  /// Create a copy of HistoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $HistoryStateCopyWith<HistoryState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $HistoryStateCopyWith<$Res> {
+  factory $HistoryStateCopyWith(
+    HistoryState value,
+    $Res Function(HistoryState) then,
+  ) = _$HistoryStateCopyWithImpl<$Res, HistoryState>;
+  @useResult
+  $Res call({List<Record> records});
+}
+
+/// @nodoc
+class _$HistoryStateCopyWithImpl<$Res, $Val extends HistoryState>
+    implements $HistoryStateCopyWith<$Res> {
+  _$HistoryStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of HistoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? records = null}) {
+    return _then(
+      _value.copyWith(
+            records: null == records
+                ? _value.records
+                : records // ignore: cast_nullable_to_non_nullable
+                      as List<Record>,
+          )
+          as $Val,
+    );
+  }
+}
+
+/// @nodoc
+abstract class _$$HistoryStateImplCopyWith<$Res>
+    implements $HistoryStateCopyWith<$Res> {
+  factory _$$HistoryStateImplCopyWith(
+    _$HistoryStateImpl value,
+    $Res Function(_$HistoryStateImpl) then,
+  ) = __$$HistoryStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<Record> records});
+}
+
+/// @nodoc
+class __$$HistoryStateImplCopyWithImpl<$Res>
+    extends _$HistoryStateCopyWithImpl<$Res, _$HistoryStateImpl>
+    implements _$$HistoryStateImplCopyWith<$Res> {
+  __$$HistoryStateImplCopyWithImpl(
+    _$HistoryStateImpl _value,
+    $Res Function(_$HistoryStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of HistoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? records = null}) {
+    return _then(
+      _$HistoryStateImpl(
+        records: null == records
+            ? _value._records
+            : records // ignore: cast_nullable_to_non_nullable
+                  as List<Record>,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$HistoryStateImpl with DiagnosticableTreeMixin implements _HistoryState {
+  const _$HistoryStateImpl({final List<Record> records = const []})
+    : _records = records;
+
+  final List<Record> _records;
+  @override
+  @JsonKey()
+  List<Record> get records {
+    if (_records is EqualUnmodifiableListView) return _records;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_records);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HistoryState(records: $records)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HistoryState'))
+      ..add(DiagnosticsProperty('records', records));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HistoryStateImpl &&
+            const DeepCollectionEquality().equals(other._records, _records));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_records));
+
+  /// Create a copy of HistoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HistoryStateImplCopyWith<_$HistoryStateImpl> get copyWith =>
+      __$$HistoryStateImplCopyWithImpl<_$HistoryStateImpl>(this, _$identity);
+}
+
+abstract class _HistoryState implements HistoryState {
+  const factory _HistoryState({final List<Record> records}) =
+      _$HistoryStateImpl;
+
+  @override
+  List<Record> get records;
+
+  /// Create a copy of HistoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HistoryStateImplCopyWith<_$HistoryStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

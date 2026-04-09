@@ -31,6 +31,13 @@ ios/GoogleService-Info.plist
 # Environment variables - contains API keys
 .env.json
 
+# Claude Code settings
+.claude/
+
+# Cloud Functions build artifacts
+functions/lib/
+functions/node_modules/
+
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id

@@ -32,6 +32,13 @@ class RecordRepository {
     );
   }
 
+  Stream<List<Record>> watchAllRecords() {
+    final query = _col.orderBy('createdAt', descending: true);
+    return query.snapshots().map((snap) {
+      return snap.docs.map(_recordFromDoc).toList();
+    });
+  }
+
   Stream<List<Record>> watchTodayRecords(String date) {
     final query = _col
         .where('date', isEqualTo: date)

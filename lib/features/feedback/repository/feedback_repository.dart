@@ -28,6 +28,19 @@ class FeedbackRepository {
     );
   }
 
+  Stream<AiFeedback?> watchFeedbackByDate(String date) {
+    final docRef = _db
+        .collection('ai_feedbacks')
+        .doc(_userId)
+        .collection('days')
+        .doc(date);
+
+    return docRef.snapshots().map((doc) {
+      if (!doc.exists) return null;
+      return _feedbackFromDoc(doc);
+    });
+  }
+
   Stream<AiFeedback?> watchTodayFeedback(String date) {
     final docRef = _db
         .collection('ai_feedbacks')

@@ -43,6 +43,24 @@ abstract class RecordState with _$RecordState {
   }) = _RecordState;
 }
 
+@freezed
+abstract class HistoryState with _$HistoryState {
+  const factory HistoryState({
+    @Default([]) List<Record> records,
+  }) = _HistoryState;
+}
+
+@riverpod
+class HistoryNotifier extends _$HistoryNotifier {
+  @override
+  HistoryState build() {
+    ref.watch(recordRepositoryProvider).watchAllRecords().listen((records) {
+      state = state.copyWith(records: records);
+    });
+    return const HistoryState();
+  }
+}
+
 @riverpod
 class RecordNotifier extends _$RecordNotifier {
   @override

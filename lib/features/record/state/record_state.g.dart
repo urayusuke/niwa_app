@@ -23,6 +23,22 @@ final inputSheetNotifierProvider =
     );
 
 typedef _$InputSheetNotifier = AutoDisposeNotifier<InputSheetState>;
+String _$historyNotifierHash() => r'12a8b0ea9503323f59d704f7a696f4b6a7a780d1';
+
+/// See also [HistoryNotifier].
+@ProviderFor(HistoryNotifier)
+final historyNotifierProvider =
+    AutoDisposeNotifierProvider<HistoryNotifier, HistoryState>.internal(
+      HistoryNotifier.new,
+      name: r'historyNotifierProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$historyNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+typedef _$HistoryNotifier = AutoDisposeNotifier<HistoryState>;
 String _$recordNotifierHash() => r'907442118c6886e2ed0c5e47b00eac45842bc93f';
 
 /// See also [RecordNotifier].
