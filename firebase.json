@@ -1,7 +1,7 @@
 {
   "functions": {
-    "source": "functions-py",
-    "runtime": "python312"
+    "source": "functions",
+    "runtime": "nodejs22"
   },
   "flutter": {
     "platforms": {
