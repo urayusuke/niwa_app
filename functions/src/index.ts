@@ -9,7 +9,7 @@ admin.initializeApp();
 
 export const generateDailyFeedback = onSchedule(
   {
-    schedule: '0 14 * * *',  // UTC 14:00 = JST 23:00
+    schedule: '0 23 * * *',  // JST 23:00
     timeZone: 'Asia/Tokyo',
     secrets: [GEMINI_API_KEY],
   },
@@ -74,7 +74,7 @@ async function processUser(db: admin.firestore.Firestore, userId: string, date: 
 
 async function callGemini(recordText: string) {
   const genAI = new GoogleGenerativeAI(GEMINI_API_KEY.value());
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-preview-05-20' });
+  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
   const prompt = `
 あなたは「Niwa」というアプリの、優しく寄り添うAIコンパニオンです。
