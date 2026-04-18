@@ -9,14 +9,16 @@ admin.initializeApp();
 
 export const generateDailyFeedback = onSchedule(
   {
-    schedule: '0 23 * * *',  // JST 23:00
-    timeZone: 'Asia/Tokyo',
+    schedule: '0 14 * * *',  // UTC 14:00 = JST 23:00
     secrets: [GEMINI_API_KEY],
   },
   async () => {
     const db = admin.firestore();
     const today = jstDateString();
+    console.log(`[START] generateDailyFeedback date=${today}`);
+
     const usersSnap = await db.collection('users').get();
+    console.log(`[INFO] users count=${usersSnap.size}`);
 
     for (const userDoc of usersSnap.docs) {
       try {
@@ -25,10 +27,13 @@ export const generateDailyFeedback = onSchedule(
         console.error(`[ERROR] userId=${userDoc.id}:`, e);
       }
     }
+    console.log('[DONE] generateDailyFeedback');
   }
 );
 
 async function processUser(db: admin.firestore.Firestore, userId: string, date: string) {
+  console.log(`[processUser] userId=${userId} date=${date}`);
+
   const entriesSnap = await db
     .collection('records')
     .doc(userId)
@@ -36,6 +41,7 @@ async function processUser(db: admin.firestore.Firestore, userId: string, date: 
     .where('date', '==', date)
     .get();
 
+  console.log(`[processUser] entries count=${entriesSnap.size}`);
   if (entriesSnap.empty) return;
 
   const feedbackRef = db
@@ -45,7 +51,10 @@ async function processUser(db: admin.firestore.Firestore, userId: string, date: 
     .doc(date);
 
   const existing = await feedbackRef.get();
-  if (existing.exists) return;
+  if (existing.exists) {
+    console.log(`[processUser] feedback already exists, skip`);
+    return;
+  }
 
   const recordText = entriesSnap.docs
     .map((d) => {
@@ -56,8 +65,11 @@ async function processUser(db: admin.firestore.Firestore, userId: string, date: 
     })
     .join('\n');
 
+  console.log(`[processUser] calling Gemini...`);
   const feedback = await callGemini(recordText);
+  console.log(`[processUser] Gemini response received, saving...`);
   await feedbackRef.set({ ...feedback, generatedAt: admin.firestore.FieldValue.serverTimestamp() });
+  console.log(`[processUser] feedback saved for userId=${userId}`);
 
   const userSnap = await db.collection('users').doc(userId).get();
   const fcmToken = userSnap.data()?.['fcmToken'] as string | undefined;
