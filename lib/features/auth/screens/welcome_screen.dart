@@ -22,7 +22,7 @@ class WelcomeScreen extends ConsumerWidget {
             children: [
               const Text(
                 '🌱',
-                style: TextStyle(fontSize: 64),
+                style: TextStyle(fontSize: AppSizes.emojiDisplaySize),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: AppSizes.spacingLg),

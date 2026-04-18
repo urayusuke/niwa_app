@@ -26,4 +26,5 @@ class AppSizes {
   static const borderWidthThin     = 0.5;
   static const feedbackLineHeight  = 1.7;
   static const feedbackIconSize    = 16.0;
+  static const emojiDisplaySize   = 64.0;
 }

@@ -11,4 +11,5 @@ class AppColors {
   static const aiFeedback     = Color(0xFFFFF8E7);
   static const onSurface      = Color(0xFFE8EAF0);
   static const onSurfaceMuted = Color(0xFF9AA3B2);
+  static const danger         = Color(0xFFFF5252);
 }

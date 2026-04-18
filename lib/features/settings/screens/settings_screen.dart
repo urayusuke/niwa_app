@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:niwa_app/common/constants/app_config.dart';
+import 'package:niwa_app/common/constants/app_colors.dart';
 import 'package:niwa_app/common/constants/app_sizes.dart';
 import 'package:niwa_app/common/constants/app_text.dart';
 import 'package:niwa_app/features/auth/state/auth_state.dart';
@@ -46,8 +47,8 @@ class SettingsScreen extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.person_remove_outlined),
             title: const Text(AppText.settingsDeleteAccount),
-            textColor: Colors.redAccent,
-            iconColor: Colors.redAccent,
+            textColor: AppColors.danger,
+            iconColor: AppColors.danger,
             onTap: () {
               _confirmDeleteAccount(context, ref);
             },
@@ -126,7 +127,7 @@ class SettingsScreen extends ConsumerWidget {
             },
             child: const Text(
               AppText.deleteAccountButton,
-              style: TextStyle(color: Colors.redAccent),
+              style: TextStyle(color: AppColors.danger),
             ),
           ),
         ],

@@ -30,7 +30,7 @@ class RecordCard extends ConsumerWidget {
               },
               child: const Text(
                 AppText.deleteConfirm,
-                style: TextStyle(color: Colors.redAccent,),
+                style: TextStyle(color: AppColors.danger),
               ),
             ),
           ],
