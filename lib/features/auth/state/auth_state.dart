@@ -14,6 +14,7 @@ abstract class AuthState with _$AuthState {
     AuthUser? user,
     @Default(false) bool isLoading,
     @Default(false) bool isNewUser,
+    @Default(false) bool isDeleting,
   }) = _AuthState;
 }
 
@@ -58,5 +59,16 @@ class AuthNotifier extends _$AuthNotifier {
 
   Future<void> signOut() async {
     await ref.read(authRepositoryProvider).signOut();
+  }
+
+  Future<void> deleteAccount() async {
+    state = state.copyWith(isDeleting: true);
+    try {
+      await ref.read(authRepositoryProvider).deleteAccount();
+    } catch (e) {
+      debugPrint('[ERROR] auth.deleteAccount: $e');
+      state = state.copyWith(isDeleting: false);
+      rethrow;
+    }
   }
 }

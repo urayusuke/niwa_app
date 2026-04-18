@@ -200,6 +200,7 @@ abstract class _InputSheetStateData implements InputSheetState {
 mixin _$RecordState {
   List<Record> get records => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isDeleting => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
 
   /// Create a copy of RecordState
@@ -216,7 +217,12 @@ abstract class $RecordStateCopyWith<$Res> {
     $Res Function(RecordState) then,
   ) = _$RecordStateCopyWithImpl<$Res, RecordState>;
   @useResult
-  $Res call({List<Record> records, bool isSubmitting, String? errorMessage});
+  $Res call({
+    List<Record> records,
+    bool isSubmitting,
+    bool isDeleting,
+    String? errorMessage,
+  });
 }
 
 /// @nodoc
@@ -236,6 +242,7 @@ class _$RecordStateCopyWithImpl<$Res, $Val extends RecordState>
   $Res call({
     Object? records = null,
     Object? isSubmitting = null,
+    Object? isDeleting = null,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -247,6 +254,10 @@ class _$RecordStateCopyWithImpl<$Res, $Val extends RecordState>
             isSubmitting: null == isSubmitting
                 ? _value.isSubmitting
                 : isSubmitting // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isDeleting: null == isDeleting
+                ? _value.isDeleting
+                : isDeleting // ignore: cast_nullable_to_non_nullable
                       as bool,
             errorMessage: freezed == errorMessage
                 ? _value.errorMessage
@@ -267,7 +278,12 @@ abstract class _$$RecordStateImplCopyWith<$Res>
   ) = __$$RecordStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Record> records, bool isSubmitting, String? errorMessage});
+  $Res call({
+    List<Record> records,
+    bool isSubmitting,
+    bool isDeleting,
+    String? errorMessage,
+  });
 }
 
 /// @nodoc
@@ -286,6 +302,7 @@ class __$$RecordStateImplCopyWithImpl<$Res>
   $Res call({
     Object? records = null,
     Object? isSubmitting = null,
+    Object? isDeleting = null,
     Object? errorMessage = freezed,
   }) {
     return _then(
@@ -297,6 +314,10 @@ class __$$RecordStateImplCopyWithImpl<$Res>
         isSubmitting: null == isSubmitting
             ? _value.isSubmitting
             : isSubmitting // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        isDeleting: null == isDeleting
+            ? _value.isDeleting
+            : isDeleting // ignore: cast_nullable_to_non_nullable
                   as bool,
         errorMessage: freezed == errorMessage
             ? _value.errorMessage
@@ -313,6 +334,7 @@ class _$RecordStateImpl with DiagnosticableTreeMixin implements _RecordState {
   const _$RecordStateImpl({
     final List<Record> records = const [],
     this.isSubmitting = false,
+    this.isDeleting = false,
     this.errorMessage,
   }) : _records = records;
 
@@ -329,11 +351,14 @@ class _$RecordStateImpl with DiagnosticableTreeMixin implements _RecordState {
   @JsonKey()
   final bool isSubmitting;
   @override
+  @JsonKey()
+  final bool isDeleting;
+  @override
   final String? errorMessage;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RecordState(records: $records, isSubmitting: $isSubmitting, errorMessage: $errorMessage)';
+    return 'RecordState(records: $records, isSubmitting: $isSubmitting, isDeleting: $isDeleting, errorMessage: $errorMessage)';
   }
 
   @override
@@ -343,6 +368,7 @@ class _$RecordStateImpl with DiagnosticableTreeMixin implements _RecordState {
       ..add(DiagnosticsProperty('type', 'RecordState'))
       ..add(DiagnosticsProperty('records', records))
       ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
+      ..add(DiagnosticsProperty('isDeleting', isDeleting))
       ..add(DiagnosticsProperty('errorMessage', errorMessage));
   }
 
@@ -354,6 +380,8 @@ class _$RecordStateImpl with DiagnosticableTreeMixin implements _RecordState {
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 other.isSubmitting == isSubmitting) &&
+            (identical(other.isDeleting, isDeleting) ||
+                other.isDeleting == isDeleting) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
   }
@@ -363,6 +391,7 @@ class _$RecordStateImpl with DiagnosticableTreeMixin implements _RecordState {
     runtimeType,
     const DeepCollectionEquality().hash(_records),
     isSubmitting,
+    isDeleting,
     errorMessage,
   );
 
@@ -379,6 +408,7 @@ abstract class _RecordState implements RecordState {
   const factory _RecordState({
     final List<Record> records,
     final bool isSubmitting,
+    final bool isDeleting,
     final String? errorMessage,
   }) = _$RecordStateImpl;
 
@@ -386,6 +416,8 @@ abstract class _RecordState implements RecordState {
   List<Record> get records;
   @override
   bool get isSubmitting;
+  @override
+  bool get isDeleting;
   @override
   String? get errorMessage;
 

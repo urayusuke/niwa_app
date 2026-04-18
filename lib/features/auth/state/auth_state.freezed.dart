@@ -20,6 +20,7 @@ mixin _$AuthState {
   AuthUser? get user => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isNewUser => throw _privateConstructorUsedError;
+  bool get isDeleting => throw _privateConstructorUsedError;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -33,7 +34,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({AuthUser? user, bool isLoading, bool isNewUser});
+  $Res call({AuthUser? user, bool isLoading, bool isNewUser, bool isDeleting});
 
   $AuthUserCopyWith<$Res>? get user;
 }
@@ -56,6 +57,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? user = freezed,
     Object? isLoading = null,
     Object? isNewUser = null,
+    Object? isDeleting = null,
   }) {
     return _then(
       _value.copyWith(
@@ -70,6 +72,10 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
             isNewUser: null == isNewUser
                 ? _value.isNewUser
                 : isNewUser // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            isDeleting: null == isDeleting
+                ? _value.isDeleting
+                : isDeleting // ignore: cast_nullable_to_non_nullable
                       as bool,
           )
           as $Val,
@@ -100,7 +106,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
   ) = __$$AuthStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({AuthUser? user, bool isLoading, bool isNewUser});
+  $Res call({AuthUser? user, bool isLoading, bool isNewUser, bool isDeleting});
 
   @override
   $AuthUserCopyWith<$Res>? get user;
@@ -123,6 +129,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
     Object? user = freezed,
     Object? isLoading = null,
     Object? isNewUser = null,
+    Object? isDeleting = null,
   }) {
     return _then(
       _$AuthStateImpl(
@@ -138,6 +145,10 @@ class __$$AuthStateImplCopyWithImpl<$Res>
             ? _value.isNewUser
             : isNewUser // ignore: cast_nullable_to_non_nullable
                   as bool,
+        isDeleting: null == isDeleting
+            ? _value.isDeleting
+            : isDeleting // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }
@@ -150,6 +161,7 @@ class _$AuthStateImpl with DiagnosticableTreeMixin implements _AuthState {
     this.user,
     this.isLoading = false,
     this.isNewUser = false,
+    this.isDeleting = false,
   });
 
   @override
@@ -160,10 +172,13 @@ class _$AuthStateImpl with DiagnosticableTreeMixin implements _AuthState {
   @override
   @JsonKey()
   final bool isNewUser;
+  @override
+  @JsonKey()
+  final bool isDeleting;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState(user: $user, isLoading: $isLoading, isNewUser: $isNewUser)';
+    return 'AuthState(user: $user, isLoading: $isLoading, isNewUser: $isNewUser, isDeleting: $isDeleting)';
   }
 
   @override
@@ -173,7 +188,8 @@ class _$AuthStateImpl with DiagnosticableTreeMixin implements _AuthState {
       ..add(DiagnosticsProperty('type', 'AuthState'))
       ..add(DiagnosticsProperty('user', user))
       ..add(DiagnosticsProperty('isLoading', isLoading))
-      ..add(DiagnosticsProperty('isNewUser', isNewUser));
+      ..add(DiagnosticsProperty('isNewUser', isNewUser))
+      ..add(DiagnosticsProperty('isDeleting', isDeleting));
   }
 
   @override
@@ -185,11 +201,14 @@ class _$AuthStateImpl with DiagnosticableTreeMixin implements _AuthState {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.isNewUser, isNewUser) ||
-                other.isNewUser == isNewUser));
+                other.isNewUser == isNewUser) &&
+            (identical(other.isDeleting, isDeleting) ||
+                other.isDeleting == isDeleting));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, isLoading, isNewUser);
+  int get hashCode =>
+      Object.hash(runtimeType, user, isLoading, isNewUser, isDeleting);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -205,6 +224,7 @@ abstract class _AuthState implements AuthState {
     final AuthUser? user,
     final bool isLoading,
     final bool isNewUser,
+    final bool isDeleting,
   }) = _$AuthStateImpl;
 
   @override
@@ -213,6 +233,8 @@ abstract class _AuthState implements AuthState {
   bool get isLoading;
   @override
   bool get isNewUser;
+  @override
+  bool get isDeleting;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.

@@ -8,27 +8,24 @@ class AppText {
   static const recordSubmit   = '庭に置く';
   static const recordSuccess  = '庭に記録を置きました。今夜、手紙が届きます 🌱';
 
-  static const moodVeryGood   = 'とても良い';
   static const moodOkay       = 'まあまあ';
-  static const moodTough      = 'つらい';
-  static const moodUnsure     = '何とも言えない';
 
   static const List<String> moods = [
-    moodTough,
     'いまいち',
     moodOkay,
     'よかった',
+    'とても良かった',
   ];
 
   static const List<String> stamps = [
-    '起きられた',
-    'ご飯を食べた',
-    '外に出た',
-    '好きなことをした',
-    'ゆっくり休んだ',
+    'おいしいものを食べた',
+    '好きな時間を過ごせた',
+    'ゆっくり休めた',
+    '自分に優しくできた',
+    '今日もよくがんばった',
   ];
 
-  static const inputStampsLabel = 'できたこと';
+  static const inputStampsLabel = '感謝したいこと';
 
   static const feedbackTitle   = '今夜の手紙';
   static const feedbackFrom    = '今日の庭から';
@@ -60,6 +57,16 @@ class AppText {
   static const historyEmpty = 'まだ記録がありません';
 
   static const dayDetailFeedbackEmpty = 'この日のフィードバックはまだ届いていません';
+
+  static const deleteConfirmTitle = '記録を削除しますか？';
+  static const deleteConfirmBody  = 'この記録は元に戻せません';
+  static const deleteConfirm      = '削除する';
+  static const deleteCancel       = 'キャンセル';
+
+  static const settingsDeleteAccount = 'アカウントを削除';
+  static const deleteAccountTitle    = 'アカウントを削除しますか？';
+  static const deleteAccountBody     = 'すべての記録が削除されます。この操作は元に戻せません。';
+  static const deleteAccountButton   = 'アカウントを削除する';
 
   static const errorGeneral          = 'しばらくしてからもう一度お試しください';
   static const errorNetwork          = 'ネットワークに接続できませんでした';

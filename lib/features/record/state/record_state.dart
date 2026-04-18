@@ -39,6 +39,7 @@ abstract class RecordState with _$RecordState {
   const factory RecordState({
     @Default([]) List<Record> records,
     @Default(false) bool isSubmitting,
+    @Default(false) bool isDeleting,
     String? errorMessage,
   }) = _RecordState;
 }
@@ -90,6 +91,18 @@ class RecordNotifier extends _$RecordNotifier {
       state = state.copyWith(errorMessage: AppText.errorRecord);
     } finally {
       state = state.copyWith(isSubmitting: false);
+    }
+  }
+
+  Future<void> deleteRecord({required String recordId}) async {
+    state = state.copyWith(isDeleting: true, errorMessage: null);
+    try {
+      await ref.read(recordRepositoryProvider).deleteRecord(recordId: recordId);
+    } catch (e) {
+      debugPrint('[ERROR] record.deleteRecord: $e');
+      state = state.copyWith(errorMessage: AppText.errorRecord);
+    } finally {
+      state = state.copyWith(isDeleting: false);
     }
   }
 

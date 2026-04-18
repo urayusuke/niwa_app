@@ -43,6 +43,15 @@ class SettingsScreen extends ConsumerWidget {
               _confirmSignOut(context, ref);
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.person_remove_outlined),
+            title: const Text(AppText.settingsDeleteAccount),
+            textColor: Colors.redAccent,
+            iconColor: Colors.redAccent,
+            onTap: () {
+              _confirmDeleteAccount(context, ref);
+            },
+          ),
           const Divider(),
           Padding(
             padding: const EdgeInsets.fromLTRB(
@@ -95,6 +104,36 @@ class SettingsScreen extends ConsumerWidget {
     final uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
+  }
+
+  Future<void> _confirmDeleteAccount(BuildContext context, WidgetRef ref) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text(AppText.deleteAccountTitle),
+        content: const Text(AppText.deleteAccountBody),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(ctx).pop(false);
+            },
+            child: const Text(AppText.deleteCancel),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(ctx).pop(true);
+            },
+            child: const Text(
+              AppText.deleteAccountButton,
+              style: TextStyle(color: Colors.redAccent),
+            ),
+          ),
+        ],
+      ),
+    );
+    if (confirmed ?? false) {
+      await ref.read(authNotifierProvider.notifier).deleteAccount();
     }
   }
 

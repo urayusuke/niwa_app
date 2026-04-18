@@ -49,6 +49,10 @@ class RecordRepository {
     });
   }
 
+  Future<void> deleteRecord({required String recordId}) async {
+    await _col.doc(recordId).delete();
+  }
+
   Future<void> addRecord({
     required String mood,
     required String text,

@@ -39,7 +39,7 @@ final historyNotifierProvider =
     );
 
 typedef _$HistoryNotifier = AutoDisposeNotifier<HistoryState>;
-String _$recordNotifierHash() => r'907442118c6886e2ed0c5e47b00eac45842bc93f';
+String _$recordNotifierHash() => r'e73ddc7481cb7735dd4fd5e968f9693cb12c8b53';
 
 /// See also [RecordNotifier].
 @ProviderFor(RecordNotifier)
