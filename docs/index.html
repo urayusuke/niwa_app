@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niwa — 夜の庭に届く、小さな手紙</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #0d1b3e;
+      --navy-light: #152348;
+      --gold: #E5B94E;
+      --gold-muted: #c9a03e;
+      --text: #e8eaf0;
+      --text-muted: #9aa3b2;
+      --card-bg: #1a2f5e;
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      background-color: var(--navy);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background-color: var(--navy-light);
+      text-align: center;
+      padding: 80px 24px 64px;
+      border-bottom: 1px solid rgba(229, 185, 78, 0.2);
+    }
+
+    .logo-mark {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    section {
+      margin-top: 64px;
+    }
+
+    h2 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--gold);
+      border-left: 4px solid var(--gold);
+      padding-left: 12px;
+      margin-bottom: 24px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* ===== CARDS ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px 20px;
+    }
+
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== PRICING ===== */
+    .pricing-box {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .pricing-badge {
+      background-color: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .pricing-box p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    /* ===== PLATFORM ===== */
+    .platform-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .platform-list li {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.9375rem;
+      color: var(--text);
+    }
+
+    .platform-list li span:first-child {
+      font-size: 22px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(229, 185, 78, 0.15);
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+    }
+
+    @media (max-width: 480px) {
+      .pricing-box {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">🌿</div>
+    <h1>Niwa</h1>
+    <p>夜の庭に届く、小さな手紙。<br>AIが今日のあなたに寄り添います。</p>
+  </header>
+
+  <main>
+
+    <section id="about">
+      <h2>Niwaとは</h2>
+      <p>
+        Niwa（ニワ）は、毎日の気持ちをそっと記録するジャーナリングアプリです。
+        記録した内容をもとに、毎晩23時にAIが寄り添いのメッセージと明日への小さな一歩を届けます。
+        自己批判ではなく、自己肯定感をやさしく育てることをコンセプトにしています。
+      </p>
+    </section>
+
+    <section id="features">
+      <h2>主な機能</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">📓</div>
+          <h3>かんたん日記</h3>
+          <p>気分・できたこと・自由メモを短く記録。書くことへのハードルを下げたシンプルな入力画面。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✉️</div>
+          <h3>毎晩23時のAI手紙</h3>
+          <p>その日の記録をもとに、AIが寄り添いメッセージとスモールステップを生成してお届けします。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3>履歴と振り返り</h3>
+          <p>過去の記録とAIフィードバックをカレンダー形式で確認。感情の変化を穏やかに見守れます。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔔</div>
+          <h3>プッシュ通知</h3>
+          <p>AIからの手紙が届いたらお知らせ。自分のペースで、庭を眺める時間を大切にできます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>料金</h2>
+      <div class="pricing-box">
+        <span class="pricing-badge">基本無料</span>
+        <p>
+          Niwa は無料でご利用いただけます。
+          アプリ内にバナー広告が表示されます。課金・サブスクリプションはありません。
+        </p>
+      </div>
+    </section>
+
+    <section id="platform">
+      <h2>対応プラットフォーム</h2>
+      <ul class="platform-list">
+        <li>
+          <span>🤖</span>
+          <span>Android（Google Play）</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Niwa. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
