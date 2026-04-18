@@ -50,11 +50,10 @@
 
 | 役割 | 定数名 | HEX |
 |---|---|---|
-| 背景 | `AppColors.background` | `#0F1B2D` |
+| 背景 | `AppColors.background` | `#0d1b3e` |
 | カード背景 | `AppColors.surface` | `#1A2F5E` |
-| プライマリ | `AppColors.primary` | `#1A2F5E` |
-| ブラウン | `AppColors.secondary` | `#8B6914` |
-| イエロー | `AppColors.tertiary` | `#C8960C` |
+| プライマリ | `AppColors.primary` | `#0d1b3e` |
+| アクセント | `AppColors.secondary` | `#E5B94E` |
 | AIエリア | `AppColors.aiFeedback` | `#FFF8E7` |
 | テキスト | `AppColors.onSurface` | `#E8EAF0` |
 | サブテキスト | `AppColors.onSurfaceMuted` | `#9AA3B2` |
