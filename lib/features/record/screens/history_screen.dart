@@ -5,6 +5,7 @@ import 'package:niwa_app/app/routes/app_route.dart';
 import 'package:niwa_app/common/constants/app_colors.dart';
 import 'package:niwa_app/common/constants/app_sizes.dart';
 import 'package:niwa_app/common/constants/app_text.dart';
+import 'package:niwa_app/common/widgets/record_card.dart';
 import 'package:niwa_app/features/record/models/record.dart';
 import 'package:niwa_app/features/record/state/record_state.dart';
 
@@ -87,7 +88,7 @@ class _RecordList extends StatelessWidget {
         if (item.date != null) {
           return _DateHeader(label: _formatDate(item.date!), rawDate: item.date!);
         }
-        return _RecordCard(record: item.record!);
+        return RecordCard(record: item.record!);
       },
     );
   }
@@ -138,53 +139,3 @@ class _DateHeader extends StatelessWidget {
   }
 }
 
-class _RecordCard extends StatelessWidget {
-  const _RecordCard({required this.record});
-  final Record record;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: AppSizes.spacingBetweenButtons),
-      child: Padding(
-        padding: const EdgeInsets.all(AppSizes.cardPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              record.mood,
-              style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    color: AppColors.tertiary,
-                  ),
-            ),
-            if (record.stamps.isNotEmpty) ...[
-              const SizedBox(height: AppSizes.spacingSm),
-              Wrap(
-                spacing: AppSizes.spacingSm,
-                runSpacing: AppSizes.spacingXs,
-                children: record.stamps.map((stamp) {
-                  return Chip(
-                    label: Text(
-                      stamp,
-                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                            color: AppColors.tertiary,
-                          ),
-                    ),
-                    padding: EdgeInsets.zero,
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    side: const BorderSide(color: AppColors.tertiary, width: 0.5),
-                    backgroundColor: Colors.transparent,
-                  );
-                }).toList(),
-              ),
-            ],
-            if (record.text.isNotEmpty) ...[
-              const SizedBox(height: AppSizes.spacingSm),
-              Text(record.text, style: Theme.of(context).textTheme.bodyMedium),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-}
