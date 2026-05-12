@@ -26,7 +26,7 @@ class AuthNotifier extends _$AuthNotifier {
       authRepositoryProvider,
       (_, repo) {},
     );
-    ref.watch(authRepositoryProvider).authStateChanges().listen((user) {
+    final sub = ref.watch(authRepositoryProvider).authStateChanges().listen((user) {
       bool isNewUser = false;
       if (user != null) {
         final createdAt = user.createdAt;
@@ -38,6 +38,7 @@ class AuthNotifier extends _$AuthNotifier {
       }
       state = state.copyWith(user: user, isNewUser: isNewUser);
     });
+    ref.onDispose(sub.cancel);
     return const AuthState();
   }
 

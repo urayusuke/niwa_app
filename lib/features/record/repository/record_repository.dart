@@ -9,7 +9,8 @@ part 'record_repository.g.dart';
 @riverpod
 RecordRepository recordRepository(Ref ref) {
   final user = ref.watch(authNotifierProvider).user;
-  return RecordRepository(FirebaseFirestore.instance, user!.uid);
+  if (user == null) throw StateError('recordRepositoryProvider: user is not authenticated');
+  return RecordRepository(FirebaseFirestore.instance, user.uid);
 }
 
 class RecordRepository {

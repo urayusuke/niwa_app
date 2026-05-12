@@ -5,7 +5,17 @@ import 'package:niwa_app/common/constants/app_colors.dart';
 import 'package:niwa_app/common/constants/app_sizes.dart';
 import 'package:niwa_app/common/constants/app_text.dart';
 import 'package:niwa_app/features/auth/state/auth_state.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+part 'settings_screen.g.dart';
+
+@riverpod
+Future<String> appVersion(Ref ref) async {
+  final info = await PackageInfo.fromPlatform();
+  return info.version;
+}
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -91,10 +101,15 @@ class SettingsScreen extends ConsumerWidget {
                   ),
             ),
           ),
-          const ListTile(
-            leading: Icon(Icons.info_outline),
-            title: Text(AppText.settingsVersion),
-            trailing: Text('1.0.0'),
+          ListTile(
+            leading: const Icon(Icons.info_outline),
+            title: const Text(AppText.settingsVersion),
+            trailing: Text(
+              ref.watch(appVersionProvider).maybeWhen(
+                    data: (v) => v,
+                    orElse: () => '',
+                  ),
+            ),
           ),
         ],
       ),

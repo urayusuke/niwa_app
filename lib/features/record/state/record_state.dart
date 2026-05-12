@@ -55,9 +55,10 @@ abstract class HistoryState with _$HistoryState {
 class HistoryNotifier extends _$HistoryNotifier {
   @override
   HistoryState build() {
-    ref.watch(recordRepositoryProvider).watchAllRecords().listen((records) {
+    final sub = ref.watch(recordRepositoryProvider).watchAllRecords().listen((records) {
       state = state.copyWith(records: records);
     });
+    ref.onDispose(sub.cancel);
     return const HistoryState();
   }
 }
@@ -67,9 +68,10 @@ class RecordNotifier extends _$RecordNotifier {
   @override
   RecordState build() {
     final today = _today();
-    ref.watch(recordRepositoryProvider).watchTodayRecords(today).listen((records) {
+    final sub = ref.watch(recordRepositoryProvider).watchTodayRecords(today).listen((records) {
       state = state.copyWith(records: records);
     });
+    ref.onDispose(sub.cancel);
     return const RecordState();
   }
 

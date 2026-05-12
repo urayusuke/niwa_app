@@ -23,7 +23,7 @@ final inputSheetNotifierProvider =
     );
 
 typedef _$InputSheetNotifier = AutoDisposeNotifier<InputSheetState>;
-String _$historyNotifierHash() => r'12a8b0ea9503323f59d704f7a696f4b6a7a780d1';
+String _$historyNotifierHash() => r'46add8cae99471b2b78a94c86c43a3a4cbc5f1ef';
 
 /// See also [HistoryNotifier].
 @ProviderFor(HistoryNotifier)
@@ -39,7 +39,7 @@ final historyNotifierProvider =
     );
 
 typedef _$HistoryNotifier = AutoDisposeNotifier<HistoryState>;
-String _$recordNotifierHash() => r'e73ddc7481cb7735dd4fd5e968f9693cb12c8b53';
+String _$recordNotifierHash() => r'75c009c89855a9807750734337c6b452facea89a';
 
 /// See also [RecordNotifier].
 @ProviderFor(RecordNotifier)

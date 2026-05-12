@@ -9,7 +9,8 @@ part 'feedback_repository.g.dart';
 @riverpod
 FeedbackRepository feedbackRepository(Ref ref) {
   final user = ref.watch(authNotifierProvider).user;
-  return FeedbackRepository(FirebaseFirestore.instance, user!.uid);
+  if (user == null) throw StateError('feedbackRepositoryProvider: user is not authenticated');
+  return FeedbackRepository(FirebaseFirestore.instance, user.uid);
 }
 
 class FeedbackRepository {

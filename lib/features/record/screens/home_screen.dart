@@ -16,6 +16,10 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(recordNotifierProvider.select((s) => s.errorMessage), (_, error) {
+      if (error == null) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error)));
+    });
     final records = ref.watch(recordNotifierProvider).records;
     final feedbackAsync = ref.watch(todayFeedbackProvider);
 
