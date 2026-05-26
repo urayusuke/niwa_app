@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:niwa_app/app/services/iap_service.dart';
 import 'package:niwa_app/common/constants/app_config.dart';
 import 'package:niwa_app/common/constants/app_colors.dart';
 import 'package:niwa_app/common/constants/app_sizes.dart';
@@ -63,6 +64,22 @@ class SettingsScreen extends ConsumerWidget {
               _confirmDeleteAccount(context, ref);
             },
           ),
+          const Divider(),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              AppSizes.spacingMd,
+              AppSizes.spacingSm,
+              AppSizes.spacingMd,
+              4,
+            ),
+            child: Text(
+              AppText.premiumSection,
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+            ),
+          ),
+          _PremiumTile(ref: ref),
           const Divider(),
           Padding(
             padding: const EdgeInsets.fromLTRB(
@@ -178,5 +195,81 @@ class SettingsScreen extends ConsumerWidget {
     if (confirmed ?? false) {
       await ref.read(authNotifierProvider.notifier).signOut();
     }
+  }
+}
+
+class _PremiumTile extends ConsumerWidget {
+  const _PremiumTile({required this.ref});
+  final WidgetRef ref;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final iapState = ref.watch(iapNotifierProvider);
+
+    if (iapState.isPremium) {
+      return const ListTile(
+        leading: Icon(Icons.block_outlined),
+        title: Text(AppText.removeAdsTitle),
+        subtitle: Text(AppText.removeAdsPurchased),
+      );
+    }
+
+    return Column(
+      children: [
+        ListTile(
+          leading: const Icon(Icons.block_outlined),
+          title: const Text(AppText.removeAdsTitle),
+          subtitle: const Text(AppText.removeAdsSubtitle),
+          trailing: iapState.isLoading
+              ? const SizedBox(
+                  width: AppSizes.loadingIndicatorSize,
+                  height: AppSizes.loadingIndicatorSize,
+                  child: CircularProgressIndicator(
+                    strokeWidth: AppSizes.loadingStrokeWidth,
+                  ),
+                )
+              : FilledButton(
+                  onPressed: () {
+                    _purchase(context, ref);
+                  },
+                  child: const Text(AppText.removeAdsPurchase),
+                ),
+        ),
+        ListTile(
+          leading: const Icon(Icons.restore_outlined),
+          title: const Text(AppText.removeAdsRestore),
+          onTap: iapState.isLoading
+              ? null
+              : () {
+                  _restore(context, ref);
+                },
+        ),
+      ],
+    );
+  }
+
+  Future<void> _purchase(BuildContext context, WidgetRef ref) async {
+    await ref.read(iapNotifierProvider.notifier).purchase();
+    final error = ref.read(iapNotifierProvider).errorMessage;
+    if (error != null && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text(AppText.purchaseError)),
+      );
+      ref.read(iapNotifierProvider.notifier).clearError();
+    }
+  }
+
+  Future<void> _restore(BuildContext context, WidgetRef ref) async {
+    final restored = await ref.read(iapNotifierProvider.notifier).restore();
+    if (!context.mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          restored
+              ? AppText.removeAdsRestoreDone
+              : AppText.removeAdsRestoreNone,
+        ),
+      ),
+    );
   }
 }

@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:niwa_app/app/services/iap_service.dart';
 import 'package:niwa_app/common/constants/app_config.dart';
 
-class AdBanner extends StatefulWidget {
+class AdBanner extends ConsumerStatefulWidget {
   const AdBanner({super.key});
 
   @override
-  State<AdBanner> createState() => _AdBannerState();
+  ConsumerState<AdBanner> createState() => _AdBannerState();
 }
 
-class _AdBannerState extends State<AdBanner> {
+class _AdBannerState extends ConsumerState<AdBanner> {
   BannerAd? _ad;
   bool _loaded = false;
 
   @override
-  void initState() {
-    super.initState();
-    // Theme.of(context) は initState では使えないため didChangeDependencies で呼ぶ
-  }
-
-  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    if (AppConfig.adsDisabled) return;
+    final isPremium = ref.read(iapNotifierProvider).isPremium;
+    if (isPremium) return;
     if (_ad == null && !_loaded) {
       _loadAd();
     }
@@ -58,6 +57,8 @@ class _AdBannerState extends State<AdBanner> {
 
   @override
   Widget build(BuildContext context) {
+    final isPremium = ref.watch(iapNotifierProvider).isPremium;
+    if (isPremium || AppConfig.adsDisabled) return const SizedBox.shrink();
     if (!_loaded || _ad == null) return const SizedBox.shrink();
     return SizedBox(
       width: _ad!.size.width.toDouble(),

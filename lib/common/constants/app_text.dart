@@ -71,4 +71,14 @@ class AppText {
   static const errorGeneral          = 'しばらくしてからもう一度お試しください';
   static const errorNetwork          = 'ネットワークに接続できませんでした';
   static const errorRecord           = '記録を保存できませんでした。もう一度試してみてください';
+
+  static const premiumSection       = 'プレミアム';
+  static const removeAdsTitle       = '広告を非表示にする';
+  static const removeAdsSubtitle    = '一度購入すると広告が消えます';
+  static const removeAdsPurchased   = '購入済み — 広告は非表示です';
+  static const removeAdsPurchase    = '購入する';
+  static const removeAdsRestore     = '購入を復元する';
+  static const removeAdsRestoreDone = '購入を復元しました';
+  static const removeAdsRestoreNone = '復元できる購入が見つかりませんでした';
+  static const purchaseError        = '購入処理に失敗しました。もう一度お試しください';
 }
