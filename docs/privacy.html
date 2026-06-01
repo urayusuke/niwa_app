@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー — Niwa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #0d1b3e;
+      --navy-light: #152348;
+      --gold: #E5B94E;
+      --text: #e8eaf0;
+      --text-muted: #9aa3b2;
+      --card-bg: #1a2f5e;
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      background-color: var(--navy);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    header {
+      background-color: var(--navy-light);
+      text-align: center;
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid rgba(229, 185, 78, 0.2);
+    }
+
+    header a {
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    header h1 {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    section {
+      margin-top: 56px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      border-left: 4px solid var(--gold);
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+    }
+
+    p + p {
+      margin-top: 12px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    ul li {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+    }
+
+    ul li strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 0.9375rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(229, 185, 78, 0.15);
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+    }
+
+    footer a {
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html">← Niwa トップページへ</a>
+    <h1>プライバシーポリシー</h1>
+    <p>制定日：2026年6月1日</p>
+  </header>
+
+  <main>
+
+    <section>
+      <p>
+        comoreve（以下「当社」）は、Niwa（以下「本アプリ」）をご利用いただくにあたり、
+        お客様の個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。
+      </p>
+    </section>
+
+    <section>
+      <h2>1. 収集する情報</h2>
+      <ul>
+        <li>
+          <strong>Googleアカウント情報</strong>
+          メールアドレス・表示名・プロフィール画像。Google ログイン時に取得します。
+        </li>
+        <li>
+          <strong>日記の記録</strong>
+          気分・テキスト（自由記述）・スタンプ・記録日時。お客様が入力した内容を保存します。
+        </li>
+        <li>
+          <strong>デバイストークン</strong>
+          プッシュ通知の配信に使用するFCMトークン。
+        </li>
+        <li>
+          <strong>広告識別子</strong>
+          Google AdMob によるバナー広告の表示に使用します。
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. 情報の利用目的</h2>
+      <ul>
+        <li>
+          <strong>アプリ機能の提供</strong>
+          記録の保存・表示・履歴の確認など、本アプリの基本機能を提供するために使用します。
+        </li>
+        <li>
+          <strong>AIフィードバックの生成</strong>
+          毎晩23時に、当日の記録をGemini API（Google）に送信し、寄り添いメッセージを生成します。
+          送信するデータは気分・テキスト・スタンプのみです。
+        </li>
+        <li>
+          <strong>プッシュ通知の配信</strong>
+          AIフィードバックの生成完了をお知らせするために使用します。
+        </li>
+        <li>
+          <strong>バナー広告の表示</strong>
+          Google AdMob による広告を表示するために使用します。
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. 第三者への提供</h2>
+      <p>当社は、以下のサービスを利用してアプリを提供しています。各サービスのプライバシーポリシーに従ってデータが処理されます。</p>
+      <ul>
+        <li>
+          <strong>Firebase（Google LLC）</strong>
+          認証・データ保存（Firestore）・プッシュ通知（FCM）に使用します。
+        </li>
+        <li>
+          <strong>Google Gemini API（Google LLC）</strong>
+          AIフィードバックの生成に使用します。記録データを送信しますが、第三者への販売や広告目的での使用は行いません。
+        </li>
+        <li>
+          <strong>Google AdMob（Google LLC）</strong>
+          バナー広告の表示に使用します。
+        </li>
+      </ul>
+      <p style="margin-top: 16px;">上記以外の第三者にお客様の個人情報を提供することはありません（法令に基づく場合を除く）。</p>
+    </section>
+
+    <section>
+      <h2>4. データの保管と削除</h2>
+      <p>
+        お客様のデータはFirestore（Google LLC）のサーバーに暗号化して保管されます。
+        本アプリ内の「アカウントを削除」機能を使用することで、保存されているすべてのデータが削除されます。
+      </p>
+    </section>
+
+    <section>
+      <h2>5. セキュリティ</h2>
+      <p>
+        お客様のデータには本人のみがアクセスできるよう、Firestoreのセキュリティルールにより保護されています。
+        他のユーザーがお客様のデータにアクセスすることはできません。
+      </p>
+    </section>
+
+    <section>
+      <h2>6. お子様のプライバシー</h2>
+      <p>
+        本アプリは13歳未満のお子様を対象としていません。
+        13歳未満のお子様からの個人情報を意図して収集することはありません。
+      </p>
+    </section>
+
+    <section>
+      <h2>7. プライバシーポリシーの変更</h2>
+      <p>
+        本ポリシーは必要に応じて改定されることがあります。
+        重要な変更がある場合は、アプリ内またはこのページでお知らせします。
+        最新の内容は常にこのページでご確認ください。
+      </p>
+    </section>
+
+    <section>
+      <h2>8. お問い合わせ</h2>
+      <p>プライバシーに関するご質問・ご要望は、以下の連絡先までお送りください。</p>
+      <ul>
+        <li>
+          <strong>事業者名</strong>
+          comoreve
+        </li>
+        <li>
+          <strong>所在地</strong>
+          〒103-0027 東京都中央区日本橋2丁目16-4 remix日本橋 6階
+        </li>
+        <li>
+          <strong>メールアドレス</strong>
+          <a href="mailto:comoreve.app@gmail.com">comoreve.app@gmail.com</a>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      <a href="index.html">Niwa トップ</a>
+      &nbsp;|&nbsp;
+      <a href="privacy.html">プライバシーポリシー</a>
+    </p>
+    <p style="margin-top: 12px;">&copy; 2026 comoreve. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
