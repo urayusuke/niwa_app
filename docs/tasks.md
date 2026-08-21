@@ -5,7 +5,16 @@
 ### ストア申請
 - [ ] プライバシーポリシーを作成・公開（AdMob 使用のため必須）
 - [ ] Google Play Console にアプリ登録・審査提出
-- [ ] Stripe の「事業のウェブサイト」欄に GitHub Pages の URL を登録
+
+### アプリ内課金
+- [ ] Google Play Console で一時購入アイテム（広告非表示）を作成
+- [ ] `in_app_purchase` パッケージを導入（pubspec.yaml）
+- [ ] 購入フロー実装（設定画面に導線を追加）
+- [ ] 購入状態を Firestore に保存
+- [ ] 広告非表示ロジックを実装（購入済みなら AdMob バナーを非表示）
+- [ ] リストア購入（restore purchases）を実装
+- [ ] iOS：App Store Connect でアプリ内課金アイテムを登録
+- [ ] サンドボックスで動作確認（Android / iOS）
 
 ### iOS
 - [ ] iOS AdMob App ID を本番用に差し替え（現在テスト ID）

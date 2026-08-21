@@ -1,0 +1,3 @@
+# package.json の engines.node = "22" に合わせる
+[tools]
+node = "22"

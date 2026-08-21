@@ -75,5 +75,6 @@ class AuthRepository {
       }
     }
     await GoogleSignIn.instance.signOut();
+    await _auth.signOut();
   }
 }
